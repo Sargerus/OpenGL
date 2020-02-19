@@ -1,0 +1,5 @@
+﻿  Building Custom Rule D:/games/glfw-3.3/tests/CMakeLists.txt
+  cursor.c
+  glad_gl.c
+  Создание кода...
+  cursor.vcxproj -> D:\games\glfw-3.3\build\tests\Debug\cursor.exe

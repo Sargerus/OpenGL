@@ -1,0 +1,5 @@
+﻿  Building Custom Rule D:/games/glfw-3.3/examples/CMakeLists.txt
+  sharing.c
+  glad_gl.c
+  Создание кода...
+  sharing.vcxproj -> D:\games\glfw-3.3\build\examples\Debug\sharing.exe
