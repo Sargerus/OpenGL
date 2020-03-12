@@ -5,7 +5,7 @@
 #include "stb_image.h"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
-void processInput(GLFWwindow* window);
+void processInput(GLFWwindow* window, Shader shader);
 
 const char* vertexShaderSource = "#version 330 core\n"
 	"layout (location = 0) in vec3 aPos;\n"
@@ -33,11 +33,11 @@ int main() {
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	float vertices[] = {
-		// positions          // colors           // texture coords
-		 0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,   // top right
-		 0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f,   // bottom right
-		-0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f,   // bottom left
-		-0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f    // top left 
+		// positions          // colors          // texture coords                  //// texture coords
+		 0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,  0.625f, 0.625f,                 //2.0f, 2.0f,   // top right
+		 0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,  0.625f, 0.325f,                 //2.0f, 0.0f,   // bottom right
+		-0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,  0.325f, 0.325f,                 //0.0f, 0.0f,   // bottom left
+		-0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,  0.325f, 0.625f                 //0.0f, 2.0f    // top left 
 	};
 
 	//float vertices[] = {
@@ -48,8 +48,10 @@ int main() {
 	//};
 
 	unsigned int indices[] = {  // note that we start from 0!
-	0, 1, 3,   // first triangle
-	1, 2, 3    // second triangle
+		2,3,0,
+		0,1,2
+	//0, 1, 3,   // first triangle
+	//1, 2, 3    // second triangle
 	};
 
 	GLFWwindow* window = glfwCreateWindow(1600, 1200, "MyFirstOpenGL", NULL, NULL);
@@ -87,8 +89,8 @@ int main() {
 
 	glGenTextures(1, &texture1);
 	glBindTexture(GL_TEXTURE_2D, texture1);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	unsigned char* data = stbi_load("container.jpg", &width, &height, &nrChanells, 0);
@@ -169,7 +171,7 @@ int main() {
 
 	while (!glfwWindowShouldClose(window))
 	{
-		processInput(window);
+		processInput(window, ourShader);
 
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
@@ -204,10 +206,32 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 	glViewport(0, 0, width, height);
 }
 
-void processInput(GLFWwindow* window)
+void processInput(GLFWwindow* window, Shader shader)
 {
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 	{
 		glfwSetWindowShouldClose(window, true);
+	} 
+
+	if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS ) 
+	{
+		GLfloat* params = new float[1];
+		glGetUniformfv(shader.ID, glGetUniformLocation(shader.ID, "grade"), params);
+		glUniform1f(glGetUniformLocation(shader.ID, "grade"), *(params)-0.001f);
+		if (*(params) < 0.0f)
+		{
+			glUniform1f(glGetUniformLocation(shader.ID, "grade"), 0.0f);
+		}
+	}
+
+	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
+	{
+		GLfloat* params = new float[1];
+		glGetUniformfv(shader.ID, glGetUniformLocation(shader.ID, "grade"), params);
+		glUniform1f(glGetUniformLocation(shader.ID, "grade"), *(params)+0.001f);
+		if (*(params) > 1.0f)
+		{
+			glUniform1f(glGetUniformLocation(shader.ID, "grade"), 1.0f);
+		}
 	}
 }
