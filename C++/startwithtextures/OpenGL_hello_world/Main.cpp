@@ -4,6 +4,7 @@
 #include "Shader.h"
 #include "stb_image.h"
 
+void error_callback(int error, const char* description);
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window, Shader shader);
 
@@ -26,6 +27,9 @@ const char* fragmentShaderSource = "#version 330 core\n"
 	"}\0";
 
 int main() {
+	
+	glfwSetErrorCallback(error_callback);
+	GLFWwindow* window;
 
 	GLenum err = glfwInit();
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -53,12 +57,17 @@ int main() {
 	//0, 1, 3,   // first triangle
 	//1, 2, 3    // second triangle
 	};
-
-	GLFWwindow* window = glfwCreateWindow(1600, 1200, "MyFirstOpenGL", NULL, NULL);
-	if (window == NULL) 
+	try {
+		window = glfwCreateWindow(-5, 1200, "MyFirstOpenGL", NULL, NULL);
+		if (window == NULL)
+		{
+			std::cout << "Failed to create GLFW window" << std::endl;
+			glfwTerminate();
+		}
+	}
+	catch (...) 
 	{
-		std::cout << "Failed to create GLFW window" << std::endl;
-		glfwTerminate();
+		std::cout << "Error occured number: " << std::endl;
 	}
 
 	glfwMakeContextCurrent(window);
@@ -234,4 +243,8 @@ void processInput(GLFWwindow* window, Shader shader)
 			glUniform1f(glGetUniformLocation(shader.ID, "grade"), 1.0f);
 		}
 	}
+}
+void error_callback(int error, const char* description)
+{
+	std::cout << "Error occured number: " << error << " - " << description << std::endl;
 }
