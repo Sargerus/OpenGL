@@ -1,7 +1,7 @@
 ﻿  Main.cpp
-D:\games\OpenGL\C++\startwithtextures\OpenGL_hello_world\Main.cpp(88,15): warning C4101: shaderProgram: неиспользованная локальная переменная
-D:\games\OpenGL\C++\startwithtextures\OpenGL_hello_world\Main.cpp(87,15): warning C4101: fragmentShader: неиспользованная локальная переменная
-D:\games\OpenGL\C++\startwithtextures\OpenGL_hello_world\Main.cpp(86,15): warning C4101: vertexShader: неиспользованная локальная переменная
-D:\games\OpenGL\C++\startwithtextures\OpenGL_hello_world\Main.cpp(90,7): warning C4101: infoLog: неиспользованная локальная переменная
-D:\games\OpenGL\C++\startwithtextures\OpenGL_hello_world\Main.cpp(89,6): warning C4101: success: неиспользованная локальная переменная
-  OpenGL_hello_world.vcxproj -> D:\games\OpenGL\C++\startwithtextures\x64\Debug\OpenGL_hello_world.exe
+D:\development\OpenGL\OpenGL\C++\startwithtextures\OpenGL_hello_world\Main.cpp(88,15): warning C4101: 'shaderProgram': unreferenced local variable
+D:\development\OpenGL\OpenGL\C++\startwithtextures\OpenGL_hello_world\Main.cpp(87,15): warning C4101: 'fragmentShader': unreferenced local variable
+D:\development\OpenGL\OpenGL\C++\startwithtextures\OpenGL_hello_world\Main.cpp(86,15): warning C4101: 'vertexShader': unreferenced local variable
+D:\development\OpenGL\OpenGL\C++\startwithtextures\OpenGL_hello_world\Main.cpp(90,7): warning C4101: 'infoLog': unreferenced local variable
+D:\development\OpenGL\OpenGL\C++\startwithtextures\OpenGL_hello_world\Main.cpp(89,6): warning C4101: 'success': unreferenced local variable
+  OpenGL_hello_world.vcxproj -> D:\development\OpenGL\OpenGL\C++\startwithtextures\x64\Debug\OpenGL_hello_world.exe

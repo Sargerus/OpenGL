@@ -38,10 +38,10 @@ int main() {
 
 	float vertices[] = {
 		// positions          // colors          // texture coords                  //// texture coords
-		 0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,  0.625f, 0.625f,                 //2.0f, 2.0f,   // top right
-		 0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,  0.625f, 0.325f,                 //2.0f, 0.0f,   // bottom right
-		-0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,  0.325f, 0.325f,                 //0.0f, 0.0f,   // bottom left
-		-0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,  0.325f, 0.625f                 //0.0f, 2.0f    // top left 
+		 0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,  1.0f, 1.0f,                 //2.0f, 2.0f,   // top right
+		 0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,  1.0f, 0.0f,                 //2.0f, 0.0f,   // bottom right
+		-0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,  0.0f, 0.0f,                 //0.0f, 0.0f,   // bottom left
+		-0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,  0.0f, 1.0f                 //0.0f, 2.0f    // top left 
 	};
 
 	//float vertices[] = {
@@ -58,7 +58,7 @@ int main() {
 	//1, 2, 3    // second triangle
 	};
 	try {
-		window = glfwCreateWindow(-5, 1200, "MyFirstOpenGL", NULL, NULL);
+		window = glfwCreateWindow(1920, 1200, "MyFirstOpenGL", NULL, NULL);
 		if (window == NULL)
 		{
 			std::cout << "Failed to create GLFW window" << std::endl;

@@ -4,9 +4,9 @@ int main() {
 
 	App& app = App::getInstance();
 
-	app.initAndPrepareContext(1600, 800, "The window");
+	app.initAndPrepareContext(1920, 1080, "The window");
 
-	Shader ourShader("vertexShader.vs", "fragmentShader.fs");
+	Shader ourShader("vertexShader.vert", "fragmentShader.frag");
 
 	app.load2DTexture("container.jpg", 0);
 	app.load2DTexture("awesomeface.png", 1);
