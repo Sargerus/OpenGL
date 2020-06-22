@@ -1,0 +1,11 @@
+﻿  App.cpp
+D:\development\OpenGL\OpenGL\C++\camera - separate class\OpenGL_hello_world\App.cpp(28,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\development\OpenGL\OpenGL\C++\camera - separate class\OpenGL_hello_world\App.cpp(29,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\development\OpenGL\OpenGL\C++\camera - separate class\OpenGL_hello_world\App.cpp(33,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\development\OpenGL\OpenGL\C++\camera - separate class\OpenGL_hello_world\App.cpp(34,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\development\OpenGL\OpenGL\C++\camera - separate class\OpenGL_hello_world\App.cpp(35,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\development\OpenGL\OpenGL\C++\camera - separate class\OpenGL_hello_world\App.cpp(36,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\development\OpenGL\OpenGL\C++\camera - separate class\OpenGL_hello_world\App.cpp(293,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Main.cpp
+  Generating Code...
+  OpenGL_hello_world.vcxproj -> D:\development\OpenGL\OpenGL\C++\camera - separate class\x64\Debug\OpenGL_hello_world.exe
