@@ -12,7 +12,7 @@ class App
 			glm::vec3 direction;
 			static App* instance;
 			static unsigned short int textureCount;
-			unsigned int VBO, VAO, EBO;
+			unsigned int VBO, VAO, EBO, lightVAO;
 			glm::vec3 cameraPos;
 			//glm::vec3 cameraFront;
 			glm::vec3 cameraUp;
@@ -24,7 +24,7 @@ class App
 			void initAndPrepareContext(int width = 800, int height = 600, const char *title = "Window");
 			GLuint load2DTexture(const char* path, int rgb);
 			void bindVAO();
-			void startRenderingCycle(Shader shader);
+			void startRenderingCycle(Shader shader, Shader lightShader);
 			void processInput(Shader shader);
 };
 

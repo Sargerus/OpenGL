@@ -7,16 +7,13 @@ int main() {
 	app.initAndPrepareContext(1920, 1080, "The window");
 
 	Shader ourShader("vertexShader.vert", "fragmentShader.frag");
+	Shader lightCubeShader("light_cube.vert", "light_cube.frag");
 
 	app.load2DTexture("container.jpg", 0);
 	app.load2DTexture("awesomeface.png", 1);
 	app.bindVAO();
-	
-	ourShader.use();
-	ourShader.setInt("texture1", 0);
-	ourShader.setInt("texture2", 1);
 
-	app.startRenderingCycle(ourShader);
+	app.startRenderingCycle(ourShader, lightCubeShader);
 
 	return 0;
 }

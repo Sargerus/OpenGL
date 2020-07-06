@@ -74,8 +74,8 @@
     <LibraryPath>D:\games\OpenGL\GLFWFiles\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>D:\development\OpenGL\OpenGL\GLFWFiles\includes;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\development\OpenGL\OpenGL\GLFWFiles\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)..\..\..\GLFWFiles\includes;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)..\..\..\GLFWFiles\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -100,7 +100,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <AdditionalDependencies>glfw3.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:\development\OpenGL\OpenGL\GLFWFiles\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\..\GLFWFiles\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -134,7 +134,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\GLFWFiles\src\glad.c" />
+    <ClCompile Include="..\..\..\..\GLFWFiles\src\glad.c" />
     <ClCompile Include="App.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Shader.cpp" />
@@ -142,6 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App_h.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="Headers_h.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="stb_image.h" />
